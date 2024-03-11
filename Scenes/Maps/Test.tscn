@@ -48,5 +48,6 @@ shape = SubResource("ConvexPolygonShape3D_kb71b")
 
 [node name="Camera" parent="." instance=ExtResource("2_145ms")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 5)
+sensitivity = 10.0
 
 [node name="Control" parent="." instance=ExtResource("3_arkqv")]
