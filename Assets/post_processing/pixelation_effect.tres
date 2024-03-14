@@ -1,9 +1,3 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://c11hcwrxcakjn"]
-
-[ext_resource type="Shader" path="res://Assets/post_processing/vignette.gdshader" id="1_4f1aw"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://c11hcwrxcakjn"]
 
 [resource]
-shader = ExtResource("1_4f1aw")
-shader_parameter/alpha = 1.0
-shader_parameter/inner_radius = 0.0
-shader_parameter/outer_radius = 1.0
