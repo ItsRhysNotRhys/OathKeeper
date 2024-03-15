@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://x8tfgp16kvyg" path="res://Scenes/UI/Interface.tscn" id="3_arkqv"]
 [ext_resource type="Shader" path="res://Scenes/Maps/Terrain.gdshader" id="6_lfkyi"]
 [ext_resource type="Script" path="res://Scenes/Maps/Terrain.gd" id="6_wbwbn"]
-[ext_resource type="Texture2D" path="res://Assets/heightmap.exr" id="7_lvskf"]
+[ext_resource type="Texture2D" uid="uid://drb2m8j4bg7h" path="res://Assets/heightmap.exr" id="7_lvskf"]
 [ext_resource type="Texture2D" uid="uid://dchm3fjvcamu" path="res://Assets/icon.svg" id="7_n2ddo"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gvtm6"]
