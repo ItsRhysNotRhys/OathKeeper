@@ -1,0 +1,184 @@
+[gd_scene load_steps=5 format=3 uid="uid://x8tfgp16kvyg"]
+
+[ext_resource type="Script" path="res://Scripts/InterfaceGod.gd" id="1_kttu8"]
+[ext_resource type="Script" path="res://Scripts/MouseArea.gd" id="2_n8ouk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5c6pi"]
+size = Vector2(1919, 111.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e3p0p"]
+radius = 21.0238
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -100.0
+offset_right = -1.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1, 1.08)
+script = ExtResource("1_kttu8")
+
+[node name="UI Area" type="Area2D" parent="."]
+position = Vector2(591, 468)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UI Area"]
+position = Vector2(375, -433)
+shape = SubResource("RectangleShape2D_5c6pi")
+
+[node name="Area2D" type="Area2D" parent="." groups=["mouse_area"]]
+script = ExtResource("2_n8ouk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_e3p0p")
+
+[node name="BuildingPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -117.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="BuildTownHallButton" type="Button" parent="BuildingPanel"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 265.0
+offset_top = -101.704
+offset_right = 380.0
+offset_bottom = -14.7036
+grow_vertical = 0
+scale = Vector2(1, 0.965436)
+disabled = true
+text = "Town Hall"
+
+[node name="BuildManaPumpButton" type="Button" parent="BuildingPanel"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 521.0
+offset_top = -101.704
+offset_right = 636.0
+offset_bottom = -14.7036
+grow_vertical = 0
+text = "Mana Pump"
+
+[node name="BuildBarracksButton3" type="Button" parent="BuildingPanel"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 393.0
+offset_top = -101.704
+offset_right = 508.0
+offset_bottom = -14.7036
+grow_vertical = 0
+text = "Barracks"
+
+[node name="TownHallPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -117.0
+offset_bottom = -0.00012207
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="SpawnGathererButton" type="Button" parent="TownHallPanel"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 265.0
+offset_top = -101.704
+offset_right = 380.0
+offset_bottom = -14.7037
+grow_vertical = 0
+scale = Vector2(1, 0.965436)
+text = "Spawn 
+Gatherer"
+
+[node name="Resources" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 49.0
+offset_top = 3.70367
+offset_right = 89.0
+offset_bottom = 43.7037
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Resources"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -19.0
+offset_right = 8.0
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="wood" type="Label" parent="Resources/VBoxContainer"]
+layout_mode = 2
+text = "wood:"
+
+[node name="woodval" type="Label" parent="Resources/VBoxContainer/wood"]
+layout_mode = 2
+offset_left = 102.0
+offset_top = 1.0
+offset_right = 272.0
+offset_bottom = 24.0
+text = "100"
+
+[node name="ruby" type="Label" parent="Resources/VBoxContainer"]
+layout_mode = 2
+text = "ruby:"
+
+[node name="rubyval" type="Label" parent="Resources/VBoxContainer/ruby"]
+layout_mode = 2
+offset_left = 102.0
+offset_top = 1.0
+offset_right = 272.0
+offset_bottom = 24.0
+text = "100"
+
+[node name="mana" type="Label" parent="Resources/VBoxContainer"]
+layout_mode = 2
+text = "mana:"
+
+[node name="manaval" type="Label" parent="Resources/VBoxContainer/mana"]
+layout_mode = 2
+offset_left = 102.0
+offset_top = 1.0
+offset_right = 272.0
+offset_bottom = 24.0
+text = "100"
+
+[node name="food" type="Label" parent="Resources/VBoxContainer"]
+layout_mode = 2
+text = "food:"
+
+[node name="foodval" type="Label" parent="Resources/VBoxContainer/food"]
+layout_mode = 2
+offset_left = 102.0
+offset_top = 1.0
+offset_right = 272.0
+offset_bottom = 24.0
+text = "100"
+
+[connection signal="area_entered" from="UI Area" to="." method="_on_ui_area_area_entered"]
+[connection signal="area_exited" from="UI Area" to="." method="_on_ui_area_area_exited"]
+[connection signal="button_down" from="BuildingPanel/BuildTownHallButton" to="." method="_on_build_town_hall_button_button_down"]
+[connection signal="button_down" from="BuildingPanel/BuildManaPumpButton" to="." method="_on_build_mana_pump_button_button_down"]
+[connection signal="button_down" from="BuildingPanel/BuildBarracksButton3" to="." method="_on_build_barracks_button_3_button_down"]
+[connection signal="button_down" from="TownHallPanel/SpawnGathererButton" to="." method="_on_spawn_gatherer_button_button_down"]
